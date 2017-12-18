@@ -2,11 +2,6 @@
   .InfluencersAdd
     form#form.form-inline(v-on:submit.prevent='addInfluencer', )
 
-      h1.title.
-        Add a new Influencer
-      p.subtitle.
-        All generic <strong>form controls</strong>, designed for consistency
-
       .field
         label.label.
           Name
