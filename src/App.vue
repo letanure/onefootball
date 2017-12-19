@@ -7,7 +7,8 @@
           side-menu()
         main.column
           page-title(:title='pageTitle', )
-          router-view
+          transition
+            router-view
 </template>
 
 <script>

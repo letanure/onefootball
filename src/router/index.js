@@ -8,7 +8,8 @@ import {
   CategoriesList,
   InfluencersAdd,
   InfluencersList,
-  SignIn
+  SignIn,
+  SignUp
 } from '@/components/'
 
 Vue.use(Router)
@@ -17,6 +18,11 @@ const router = new Router({
   mode: 'history',
   routes: [
     // Sign In
+    {
+      path: '/sign-up',
+      name: 'signUp',
+      component: SignUp,
+    },
     {
       path: '/sign-in',
       name: 'signIn',

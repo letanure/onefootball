@@ -34,7 +34,7 @@
 import { required, minLength } from 'vuelidate/lib/validators'
 import toastr from 'toastr'
 import db from '@/db'
-import {SelectCategory} from '@/components/'
+import SelectCategory from '@/components/core/SelectCategory'
 
 const categoriessRef = db.ref('categories')
 
@@ -143,6 +143,5 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.CategoriesAdd
-  outline 1px solid red
+// .CategoriesAdd
 </style>
