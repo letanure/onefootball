@@ -72,8 +72,7 @@ export default {
 }
 </script>
 
-<style scoped>
-  .SideMenu {
-    background-color: #fff;
-  }
+<style lang="stylus">
+.SideMenu
+  background-color #fff
 </style>

@@ -84,7 +84,6 @@ export default {
 }
 </script>
 
-<style scoped>
-  .HomeDashboard {
-  }
+<style lang="stylus">
+// .HomeDashboard
 </style>

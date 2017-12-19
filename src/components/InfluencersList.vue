@@ -64,7 +64,6 @@ export default {
 }
 </script>
 
-<style scoped>
-  .InfluencersList {
-  }
+<style lang="stylus">
+// .InfluencersList
 </style>

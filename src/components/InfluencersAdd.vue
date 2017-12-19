@@ -1,125 +1,72 @@
 <template lang="pug">
   .InfluencersAdd
-    form#form.form-inline(v-on:submit.prevent='addInfluencer', )
+    .box
+      form#form.form-inline(v-on:submit.prevent='addInfluencer', )
 
-      .field
-        label.label.
-          Name
-        .control
-          input.input(type='text', v-model='influencer.name', placeholder='', required, )
+        .field
+          label.label.
+            Name
+          .control
+            input.input(type='text', v-model='influencer.name', placeholder='', required, )
 
-      .field
-        label.label.
-          Influencer's official Instagram username
-        .control
-          input.input(type='text', v-model='influencer.instagram', placeholder='@', required, )
+        .field
+          label.label.
+            Influencer's official Instagram username
+          .control
+            input.input(type='text', v-model='influencer.instagram', placeholder='@', required, )
 
-      .field
-        label.label.
-          Country (optional)
-        .control
-          .select
-            select
-              option(v-for='country in countries', v-model='influencer.country', :value='country.code', ).
-                {{ country.name }}
+        .field
+          label.label.
+            Country (optional)
+          .control
+            .select
+              select
+                option(v-for='country in countries', v-model='influencer.country', :value='country.code', ).
+                  {{ country.name }}
 
-      .field
-        label.label.
-          Main category
-        .control
-          .select
-            select
-              option(v-for='categorie in categories', v-model='influencer.category1', :value='categorie.id', required, ).
-                {{ categorie.name }}
-      .field
-        label.label.
-          Second category (optional)
-        .control
-          .select
-            select
-              option(v-for='categorie in categories', v-model='influencer.category2', :value='categorie.id', ).
-                {{ categorie.name }}
+        .field
+          label.label.
+            Main category
+          .control
+            .select
+              select-category(placeholder='Select the main category', v-model='influencer.category1')
 
-      .field
-        label.label.
-          Influencer's official Facebook Fan Page (optional)
-        .control
-          input.input(type='url', v-model='influencer.facebook', placeholder='', )
+        .field
+          label.label.
+            Second category (optional)
+          .control
+            .select
+              select-category(placeholder='Select the second category', v-model='influencer.category2')
 
-      .field
-        label.label.
-          Influencer's official Twitter handle (optional)
-        .control
-          input.input(type='text', v-model='influencer.twitter', placeholder='@', )
+        .field
+          label.label.
+            Influencer's official Facebook Fan Page (optional)
+          .control
+            input.input(type='url', v-model='influencer.facebook', placeholder='', )
 
-      .control
-        button.button.is-primary().
-          Submit
+        .field
+          label.label.
+            Influencer's official Twitter handle (optional)
+          .control
+            input.input(type='text', v-model='influencer.twitter', placeholder='@', )
+
+        .control
+          button.button.is-primary().
+            Submit
 </template>
 
 <script>
 import db from '@/db'
+import SelectCategory from '@/components/core/SelectCategory'
 
 const booksRef = db.ref('books')
 const influencersRef = db.ref('influencers')
+const categoriessRef = db.ref('categories')
 
 export default {
   name: 'InfluencersAdd',
   data () {
     return {
-      categories: [
-        { id: 2, name: 'Accessories' },
-        { id: 3, name: 'Adventure' },
-        { id: 4, name: 'Architecture' },
-        { id: 5, name: 'Automotive' },
-        { id: 6, name: 'Cats' },
-        { id: 7, name: 'Cosmetics' },
-        { id: 8, name: 'Design' },
-        { id: 9, name: 'Dogs' },
-        { id: 10, name: 'Drinks' },
-        { id: 11, name: 'Entertainment' },
-        { id: 12, name: 'Fashion' },
-        { id: 13, name: 'Fitness' },
-        { id: 14, name: 'Food' },
-        { id: 15, name: 'Gaming' },
-        { id: 16, name: 'Graphics' },
-        { id: 17, name: 'Hairstyles' },
-        { id: 52, name: 'Health' },
-        { id: 18, name: 'Illustration' },
-        { id: 19, name: 'Interior design' },
-        { id: 20, name: 'Jewelry' },
-        { id: 21, name: 'Kids' },
-        { id: 22, name: 'Landscape' },
-        { id: 23, name: 'Lifestyle' },
-        { id: 24, name: 'Lingerie' },
-        { id: 25, name: 'Luxury' },
-        { id: 50, name: 'Mobile only' },
-        { id: 26, name: 'Motorbike' },
-        { id: 27, name: 'Music' },
-        { id: 28, name: 'Nails' },
-        { id: 29, name: 'Nature' },
-        { id: 30, name: 'People' },
-        { id: 31, name: 'Photography' },
-        { id: 51, name: 'Quotes' },
-        { id: 53, name: 'Real estate' },
-        { id: 48, name: 'Repost' },
-        { id: 49, name: 'Science' },
-        { id: 32, name: 'Selfie' },
-        { id: 33, name: 'Shoes' },
-        { id: 34, name: 'Soccer' },
-        { id: 35, name: 'Sports' },
-        { id: 36, name: 'Sports Extreme' },
-        { id: 37, name: 'Tattoos' },
-        { id: 38, name: 'Technology' },
-        { id: 39, name: 'Travel' },
-        { id: 40, name: 'Urban' },
-        { id: 54, name: 'Vegan' },
-        { id: 41, name: 'Watches' },
-        { id: 42, name: 'Wedding' },
-        { id: 43, name: 'Weight Loss' },
-        { id: 44, name: 'Yoga' },
-        { id: 45, name: 'Youth' }
-      ],
       countries: [
         { code: 'ABW', name: 'Aruba' },
         { code: 'AFG', name: 'Afghanistan' },
@@ -380,7 +327,8 @@ export default {
   },
   firebase: {
     books: db.ref('books'),
-    influencers: db.ref('influencers')
+    influencers: db.ref('influencers'),
+    categories: categoriessRef
   },
   methods: {
     addBook: function () {
@@ -392,11 +340,13 @@ export default {
     addInfluencer: function () {
       influencersRef.push(this.influencer)
     }
+  },
+  components: {
+    SelectCategory
   }
 }
 </script>
 
-<style scoped>
-  .InfluencersAdd {
-  }
+<style lang="stylus">
+// .InfluencersAdd
 </style>

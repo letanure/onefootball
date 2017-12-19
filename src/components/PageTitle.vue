@@ -24,7 +24,6 @@ export default {
 }
 </script>
 
-<style scoped>
-  .PageTitle {
-  }
+<style lang="stylus">
+// .PageTitle
 </style>

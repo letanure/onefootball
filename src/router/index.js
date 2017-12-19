@@ -54,7 +54,16 @@ export default new Router({
           name: 'CategoriesAdd',
           component: CategoriesAdd,
           meta: {
-            title: 'Add Category'
+            title: 'Categories / Add Category'
+          }
+        },
+        {
+          path: 'edit/:categoryKey',
+          name: 'CategoriesEdit',
+          component: CategoriesAdd,
+          props: true,
+          meta: {
+            title: 'Categories / Edit Category'
           }
         }
       ]
