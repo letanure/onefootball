@@ -5,18 +5,33 @@ import CategoriesAdd from '@/components/CategoriesAdd'
 import CategoriesList from '@/components/CategoriesList'
 import InfluencersAdd from '@/components/InfluencersAdd'
 import InfluencersList from '@/components/InfluencersList'
+import SignIn from '@/components/SignIn'
 
 Vue.use(Router)
 
-export default new Router({
+ const router = new Router({
   mode: 'history',
   routes: [
+
+    // Sign In
+    {
+      path: '/sign-in',
+      name: 'signIn',
+      component: SignIn,
+      meta: {
+        title: 'Login',
+        requiresAuth: false
+      }
+    },
+
+    // Home
     {
       path: '/',
       name: 'HomeDashboard',
       component: HomeDashboard,
       meta: {
-        title: 'Dashboard'
+        title: 'Dashboard',
+        requiresAuth: true
       }
     },
 
@@ -26,7 +41,8 @@ export default new Router({
       name: 'InfluencersList',
       component: InfluencersList,
       meta: {
-        title: 'Influencers'
+        title: 'Influencers',
+        requiresAuth: true
       },
       children: [
         {
@@ -34,7 +50,8 @@ export default new Router({
           name: 'InfluencersAdd',
           component: InfluencersAdd,
           meta: {
-            title: 'Add Influencer'
+            title: 'Add Influencer',
+            requiresAuth: true
           }
         }
       ]
@@ -54,7 +71,8 @@ export default new Router({
           name: 'CategoriesAdd',
           component: CategoriesAdd,
           meta: {
-            title: 'Categories / Add Category'
+            title: 'Categories / Add Category',
+            requiresAuth: true
           }
         },
         {
@@ -63,10 +81,27 @@ export default new Router({
           component: CategoriesAdd,
           props: true,
           meta: {
-            title: 'Categories / Edit Category'
+            title: 'Categories / Edit Category',
+            requiresAuth: true
           }
         }
       ]
     }
   ]
 })
+
+router.beforeEach((to, from, next) => {
+  const currentUser = Firebase.auth().currentUser;
+  const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
+
+  if (requiresAuth && !currentUser) {
+    next('/sign-in');
+  } else if (requiresAuth && currentUser) {
+    next();
+  } else {
+    next();
+  }
+
+});
+
+export default router
