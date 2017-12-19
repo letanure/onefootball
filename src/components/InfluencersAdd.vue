@@ -57,7 +57,7 @@
 
 <script>
 import db from '@/db'
-import SelectCategory from '@/components/core/SelectCategory'
+import {SelectCategory} from '@/components/'
 
 const booksRef = db.ref('books')
 const influencersRef = db.ref('influencers')

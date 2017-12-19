@@ -34,7 +34,7 @@
 import { required, minLength } from 'vuelidate/lib/validators'
 import toastr from 'toastr'
 import db from '@/db'
-import SelectCategory from '@/components/core/SelectCategory'
+import {SelectCategory} from '@/components/'
 
 const categoriessRef = db.ref('categories')
 

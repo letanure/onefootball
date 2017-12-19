@@ -1,12 +1,14 @@
 import Vue from 'vue'
-import Firebase from 'firebase'
 import Router from 'vue-router'
-import HomeDashboard from '@/components/HomeDashboard'
-import CategoriesAdd from '@/components/CategoriesAdd'
-import CategoriesList from '@/components/CategoriesList'
-import InfluencersAdd from '@/components/InfluencersAdd'
-import InfluencersList from '@/components/InfluencersList'
-import SignIn from '@/components/SignIn'
+import Firebase from 'firebase'
+import {
+  HomeDashboard,
+  CategoriesAdd,
+  CategoriesList,
+  InfluencersAdd,
+  InfluencersList,
+  SignIn
+} from '@/components/'
 
 Vue.use(Router)
 
