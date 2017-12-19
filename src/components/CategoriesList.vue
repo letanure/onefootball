@@ -58,7 +58,7 @@ export default {
   name: 'CategoriesList',
   data () {
     return {
-      searchTerm: null
+      searchTerm: null,
     }
   },
 
@@ -66,7 +66,7 @@ export default {
   },
 
   firebase: {
-    categories: categoriessRef
+    categories: categoriessRef,
   },
 
   methods: {
@@ -93,8 +93,8 @@ export default {
         categoriessRef.child(category['.key']).remove()
         toastr.success(`Category ${category.name} removed successfully`)
       }
-    }
-  }
+    },
+  },
 }
 </script>
 

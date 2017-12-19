@@ -17,21 +17,21 @@ export default {
     value: '',
     placeholder: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   data () {
     return {
     }
   },
   firebase: {
-    categories: categoriessRef
+    categories: categoriessRef,
   },
   methods: {
     updateValue (value) {
       this.$emit('input', value)
-    }
-  }
+    },
+  },
 }
 </script>
 

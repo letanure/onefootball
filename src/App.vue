@@ -24,15 +24,15 @@ export default {
   computed: {
     pageTitle () {
       return this.$route.meta.title
-    }
+    },
   },
   methods: {
   },
   components: {
     HeaderMain,
     PageTitle,
-    SideMenu
-  }
+    SideMenu,
+  },
 }
 </script>
 

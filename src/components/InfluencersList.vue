@@ -53,14 +53,14 @@ export default {
     }
   },
   firebase: {
-    influencers: db.ref('influencers')
+    influencers: db.ref('influencers'),
   },
   methods: {
     removeInfluencer: function (influencer) {
       influencersRef.child(influencer['.key']).remove()
       // toastr.success('Book removed successfully')
-    }
-  }
+    },
+  },
 }
 </script>
 

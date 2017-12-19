@@ -41,33 +41,33 @@ const categoriessRef = db.ref('categories')
 export default {
   name: 'CategoriesAdd',
   props: [
-    'categoryKey'
+    'categoryKey',
   ],
   data () {
     return {
       category: {
         '.key': null,
         name: null,
-        parentCategory: null
-      }
+        parentCategory: null,
+      },
     }
   },
   validations: {
     category: {
       name: {
         required,
-        minLength: minLength(4)
+        minLength: minLength(4),
       },
-      parentCategory: {}
-    }
+      parentCategory: {},
+    },
   },
   firebase: {
-    categories: categoriessRef
+    categories: categoriessRef,
   },
   watch: {
     categoryKey () {
       this.searchCategory()
-    }
+    },
   },
   mounted () {
     if (this.categoryKey) {
@@ -83,7 +83,7 @@ export default {
         this.category = {
           '.key': categoryEdit['.key'],
           name: categoryEdit.name,
-          parentCategory: categoryEdit.parentCategory
+          parentCategory: categoryEdit.parentCategory,
         }
       }
     },
@@ -131,11 +131,11 @@ export default {
       if (!this.$v.$invalid && !isDuplicated && !hasKey) {
         this.add()
       }
-    }
+    },
   },
   components: {
-    SelectCategory
-  }
+    SelectCategory,
+  },
 }
 </script>
 

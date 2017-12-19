@@ -307,7 +307,7 @@ export default {
         { code: 'YUG', name: 'Yugoslavia' },
         { code: 'ZAF', name: 'South Africa' },
         { code: 'ZMB', name: 'Zambia' },
-        { code: 'ZWE', name: 'Zimbabwe' }
+        { code: 'ZWE', name: 'Zimbabwe' },
       ],
       influencer: {
         name: '',
@@ -316,19 +316,19 @@ export default {
         category1: '',
         category2: '',
         facebook: '',
-        twitter: ''
+        twitter: '',
       },
       newBook: {
         title: '',
         author: '',
-        url: 'http://'
-      }
+        url: 'http://',
+      },
     }
   },
   firebase: {
     books: db.ref('books'),
     influencers: db.ref('influencers'),
-    categories: categoriessRef
+    categories: categoriessRef,
   },
   methods: {
     addBook: function () {
@@ -339,11 +339,11 @@ export default {
     },
     addInfluencer: function () {
       influencersRef.push(this.influencer)
-    }
+    },
   },
   components: {
-    SelectCategory
-  }
+    SelectCategory,
+  },
 }
 </script>
 

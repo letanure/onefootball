@@ -6,7 +6,7 @@ const firebaseApp = Firebase.initializeApp({
   databaseURL: 'https://onefootball-4a3da.firebaseio.com',
   projectId: 'onefootball-4a3da',
   storageBucket: 'onefootball-4a3da.appspot.com',
-  messagingSenderId: '68852080407'
+  messagingSenderId: '68852080407',
 })
 
 const db = firebaseApp.database()

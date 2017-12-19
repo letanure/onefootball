@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import Firebase from 'firebase'
 import Router from 'vue-router'
 import HomeDashboard from '@/components/HomeDashboard'
 import CategoriesAdd from '@/components/CategoriesAdd'
@@ -9,10 +10,9 @@ import SignIn from '@/components/SignIn'
 
 Vue.use(Router)
 
- const router = new Router({
+const router = new Router({
   mode: 'history',
   routes: [
-
     // Sign In
     {
       path: '/sign-in',
@@ -20,8 +20,8 @@ Vue.use(Router)
       component: SignIn,
       meta: {
         title: 'Login',
-        requiresAuth: false
-      }
+        requiresAuth: false,
+      },
     },
 
     // Home
@@ -31,8 +31,8 @@ Vue.use(Router)
       component: HomeDashboard,
       meta: {
         title: 'Dashboard',
-        requiresAuth: true
-      }
+        requiresAuth: true,
+      },
     },
 
     // Influencers
@@ -42,7 +42,7 @@ Vue.use(Router)
       component: InfluencersList,
       meta: {
         title: 'Influencers',
-        requiresAuth: true
+        requiresAuth: true,
       },
       children: [
         {
@@ -51,10 +51,10 @@ Vue.use(Router)
           component: InfluencersAdd,
           meta: {
             title: 'Add Influencer',
-            requiresAuth: true
-          }
-        }
-      ]
+            requiresAuth: true,
+          },
+        },
+      ],
     },
 
     // Categories
@@ -63,7 +63,7 @@ Vue.use(Router)
       name: 'CategoriesList',
       component: CategoriesList,
       meta: {
-        title: 'Categories'
+        title: 'Categories',
       },
       children: [
         {
@@ -72,8 +72,8 @@ Vue.use(Router)
           component: CategoriesAdd,
           meta: {
             title: 'Categories / Add Category',
-            requiresAuth: true
-          }
+            requiresAuth: true,
+          },
         },
         {
           path: 'edit/:categoryKey',
@@ -82,26 +82,25 @@ Vue.use(Router)
           props: true,
           meta: {
             title: 'Categories / Edit Category',
-            requiresAuth: true
-          }
-        }
-      ]
-    }
-  ]
+            requiresAuth: true,
+          },
+        },
+      ],
+    },
+  ],
 })
 
 router.beforeEach((to, from, next) => {
-  const currentUser = Firebase.auth().currentUser;
-  const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
+  const currentUser = Firebase.auth().currentUser
+  const requiresAuth = to.matched.some(record => record.meta.requiresAuth)
 
   if (requiresAuth && !currentUser) {
-    next('/sign-in');
+    next('/sign-in')
   } else if (requiresAuth && currentUser) {
-    next();
+    next()
   } else {
-    next();
+    next()
   }
-
-});
+})
 
 export default router
