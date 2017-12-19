@@ -11,9 +11,11 @@
 </template>
 
 <script>
-import HeaderMain from '@/components/HeaderMain'
-import PageTitle from '@/components/PageTitle'
-import SideMenu from '@/components/SideMenu'
+import {
+  HeaderMain,
+  PageTitle,
+  SideMenu
+} from '@/components/'
 
 export default {
   name: 'AppVue',
@@ -25,6 +27,14 @@ export default {
   computed: {
     pageTitle () {
       return this.$route.meta.title
+    },
+  },
+  created () {
+    this.setUser()
+  },
+  methods: {
+    setUser () {
+      this.$store.dispatch('setUser')
     },
   },
 }

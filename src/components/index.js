@@ -1,6 +1,7 @@
 import SelectCategory from '@/components/core/SelectCategory'
 import CategoriesAdd from '@/components/CategoriesAdd'
 import CategoriesList from '@/components/CategoriesList'
+import Error404 from '@/components/Error404'
 import HeaderMain from '@/components/HeaderMain'
 import HomeDashboard from '@/components/HomeDashboard'
 import InfluencersAdd from '@/components/InfluencersAdd'
@@ -14,6 +15,7 @@ export {
   SelectCategory,
   CategoriesAdd,
   CategoriesList,
+  Error404,
   HeaderMain,
   HomeDashboard,
   InfluencersAdd,

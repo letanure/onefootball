@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Firebase from 'firebase'
 import {
   HomeDashboard,
+  Error404,
   CategoriesAdd,
   CategoriesList,
   InfluencersAdd,
@@ -88,6 +89,17 @@ const router = new Router({
           },
         },
       ],
+    },
+
+    // 404
+    {
+      path: '/404',
+      name: '404',
+      component: Error404,
+    },
+    {
+      path: '*',
+      redirect: '/404',
     },
   ],
 })

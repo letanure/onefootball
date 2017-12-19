@@ -13,6 +13,7 @@ export default {
     title: {
       type: String,
       required: true,
+      default: 'Page title',
     },
   },
   data () {

@@ -22,6 +22,7 @@
 
 <script>
 import Firebase from 'firebase'
+import toastr from 'toastr'
 
 export default {
   name: 'SignIn',
@@ -37,10 +38,10 @@ export default {
         .signInWithEmailAndPassword(this.email, this.password)
         .then(
           user => {
-            this.$router.replace('dashboard')
+            this.$router.replace({ name: 'HomeDashboard' })
           },
           error => {
-            alert(error.message)
+            toastr.error(error.message)
           }
         )
     },
