@@ -1,5 +1,5 @@
 <template lang="pug">
-  #app
+  #AppVue
     header-main()
     .section
       .columns
@@ -16,28 +16,22 @@ import PageTitle from '@/components/PageTitle'
 import SideMenu from '@/components/SideMenu'
 
 export default {
-  name: 'app',
-  data () {
-    return {
-    }
+  name: 'AppVue',
+  components: {
+    HeaderMain,
+    PageTitle,
+    SideMenu,
   },
   computed: {
     pageTitle () {
       return this.$route.meta.title
     },
   },
-  methods: {
-  },
-  components: {
-    HeaderMain,
-    PageTitle,
-    SideMenu,
-  },
 }
 </script>
 
 <style>
-  #app {
+  #AppVue {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

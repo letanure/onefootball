@@ -65,6 +65,9 @@ const categoriessRef = db.ref('categories')
 
 export default {
   name: 'InfluencersAdd',
+  components: {
+    SelectCategory,
+  },
   data () {
     return {
       countries: [
@@ -340,9 +343,6 @@ export default {
     addInfluencer: function () {
       influencersRef.push(this.influencer)
     },
-  },
-  components: {
-    SelectCategory,
   },
 }
 </script>

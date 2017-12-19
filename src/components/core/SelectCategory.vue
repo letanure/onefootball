@@ -14,8 +14,12 @@ const categoriessRef = db.ref('categories')
 export default {
   name: 'SelectCategory',
   props: {
-    value: '',
+    value: {
+      default: '',
+      type: String,
+    },
     placeholder: {
+      default: 'Select the category',
       type: String,
       required: true,
     },

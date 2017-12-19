@@ -75,12 +75,6 @@
 
 export default {
   name: 'HomeDashboard',
-  data () {
-    return {
-    }
-  },
-  components: {
-  },
 }
 </script>
 

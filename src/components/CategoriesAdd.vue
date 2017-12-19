@@ -40,9 +40,15 @@ const categoriessRef = db.ref('categories')
 
 export default {
   name: 'CategoriesAdd',
-  props: [
-    'categoryKey',
-  ],
+  components: {
+    SelectCategory,
+  },
+  props: {
+    categoryKey: {
+      default: '',
+      type: String,
+    },
+  },
   data () {
     return {
       category: {
@@ -132,9 +138,6 @@ export default {
         this.add()
       }
     },
-  },
-  components: {
-    SelectCategory,
   },
 }
 </script>
