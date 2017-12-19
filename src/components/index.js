@@ -1,4 +1,5 @@
 import SelectCategory from '@/components/core/SelectCategory'
+import SelectCountry from '@/components/core/SelectCountry'
 import CategoriesAdd from '@/components/CategoriesAdd'
 import CategoriesList from '@/components/CategoriesList'
 import Error404 from '@/components/Error404'
@@ -13,6 +14,7 @@ import SignUp from '@/components/SignUp'
 
 export {
   SelectCategory,
+  SelectCountry,
   CategoriesAdd,
   CategoriesList,
   Error404,
