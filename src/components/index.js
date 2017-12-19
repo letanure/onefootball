@@ -8,6 +8,7 @@ import InfluencersList from '@/components/InfluencersList'
 import PageTitle from '@/components/PageTitle'
 import SideMenu from '@/components/SideMenu'
 import SignIn from '@/components/SignIn'
+import SignUp from '@/components/SignUp'
 
 export {
   SelectCategory,
@@ -19,5 +20,6 @@ export {
   InfluencersList,
   PageTitle,
   SideMenu,
-  SignIn
+  SignIn,
+  SignUp
 }

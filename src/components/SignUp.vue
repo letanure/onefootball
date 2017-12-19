@@ -1,11 +1,11 @@
 <template lang="pug">
   section.section
-    h1.title.has-text-centered Sign-in
+    h1.title.has-text-centered Sign-up
     .columns
       .column.is-one-third
         .card
           .card-header.is-centered
-            h2.card-header-title.is-centered Sign in to Your Account
+            h2.card-header-title.is-centered Create an Account
           .card-content
             form(v-on:submit.prevent='')
               .field
@@ -16,7 +16,7 @@
                 label.label Password
                 .control
                   input.input(type='password', v-model='password')
-              button.button.is-primary(type='submit', v-on:click='signIn') Sign-in
+              button.button.is-primary(type='submit', v-on:click='signUp') Sign-up
 
 </template>
 
@@ -24,7 +24,7 @@
 import Firebase from 'firebase'
 
 export default {
-  name: 'SignIn',
+  name: 'SignUp',
   data () {
     return {
       email: '',
@@ -32,9 +32,9 @@ export default {
     }
   },
   methods: {
-    signIn () {
+    signUp () {
       Firebase.auth()
-        .signInWithEmailAndPassword(this.email, this.password)
+        .createUserWithEmailAndPassword(this.email, this.password)
         .then(
           user => {
             this.$router.replace('dashboard')
@@ -49,5 +49,6 @@ export default {
 </script>
 
 <style>
-
+// Basic styles are pulled in from the Bulma framework https://bulma.io/
+// These style tags could be omitted as they arre not used.
 </style>
