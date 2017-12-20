@@ -7,6 +7,12 @@ const categoriessRef = db.ref('categories')
 export default {
   name: 'SelectCategory',
   extends: FormField,
+  props: {
+    type: {
+      default: 'select',
+      type: String,
+    },
+  },
   firebase: {
     categories: categoriessRef,
   },

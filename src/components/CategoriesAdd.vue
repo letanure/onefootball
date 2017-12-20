@@ -10,7 +10,6 @@
 
       template(v-if='categories[0]')
         select-category(v-model='category.parentCategory',
-          type='select',
           label='Parent category',
           placeholder='Select the parent category',
           :validations='$v.category.parentCategory', )
