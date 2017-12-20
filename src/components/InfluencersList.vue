@@ -36,18 +36,23 @@
             0
           td
             .button.is-danger(v-on:click='removeInfluencer(influencer)',)
-              .icon
-                i.fa.fa-trash
+              icon-ui(type='trash')
+              span.
+                Remove
 
 </template>
 
 <script>
+import IconUi from '@/components/core/IconUi'
 import db from '@/db'
 
 const influencersRef = db.ref('influencers')
 
 export default {
   name: 'InfluencersList',
+  components: {
+    IconUi,
+  },
   data () {
     return {
     }

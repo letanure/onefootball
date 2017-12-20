@@ -1,4 +1,5 @@
 import FormField from '@/components/core/FormField'
+import IconUi from '@/components/core/IconUi'
 import SelectCategory from '@/components/core/SelectCategory'
 import SelectCountry from '@/components/core/SelectCountry'
 import CategoriesAdd from '@/components/CategoriesAdd'
@@ -15,6 +16,7 @@ import SignUp from '@/components/SignUp'
 
 export {
   FormField,
+  IconUi,
   SelectCategory,
   SelectCountry,
   CategoriesAdd,

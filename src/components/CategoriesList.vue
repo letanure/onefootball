@@ -32,13 +32,11 @@
                 {{ parentCategoryName(category.parentCategory) }}
               td
                 router-link.button.is-info(:to='{ name: "CategoriesEdit", params: { categorySlug: category.slug }}', )
-                  span.icon
-                    i.fa.fa-pencil
+                  icon-ui(type='pencil')
                   span.
                     Edit
                 button.button.is-danger(v-on:click='remove(category)',)
-                  span.icon
-                    i.fa.fa-trash
+                  icon-ui(type='trash')
                   span.
                     Delete
       template(v-else)
@@ -51,12 +49,16 @@
 
 <script>
 import toastr from 'toastr'
+import IconUi from '@/components/core/IconUi'
 import db from '@/db'
 
 const categoriessRef = db.ref('categories')
 
 export default {
   name: 'CategoriesList',
+  components: {
+    IconUi,
+  },
   data () {
     return {
       searchTerm: null,
@@ -72,9 +74,9 @@ export default {
 
   methods: {
 
-    hasChildren (categoryKey) {
+    hasChildren (categorySlug) {
       return this.categories.filter((category) => {
-        return (category.parentCategory === categoryKey)
+        return (category.parentCategory === categorySlug)
       }).length > 0
     },
 
@@ -86,7 +88,7 @@ export default {
     },
 
     remove (category) {
-      const hasChildren = this.hasChildren(category['.key'])
+      const hasChildren = this.hasChildren(category.slug)
       if (hasChildren) {
         toastr.error(`Can't delete the category ${category.name} because is a parent category.`)
       }
