@@ -85,7 +85,7 @@ const router = new Router({
           },
         },
         {
-          path: 'edit/:categoryKey',
+          path: 'edit/:categorySlug',
           name: 'CategoriesEdit',
           component: CategoriesAdd,
           props: true,

@@ -1,3 +1,4 @@
+import FormField from '@/components/core/FormField'
 import SelectCategory from '@/components/core/SelectCategory'
 import SelectCountry from '@/components/core/SelectCountry'
 import CategoriesAdd from '@/components/CategoriesAdd'
@@ -13,6 +14,7 @@ import SignIn from '@/components/SignIn'
 import SignUp from '@/components/SignUp'
 
 export {
+  FormField,
   SelectCategory,
   SelectCountry,
   CategoriesAdd,

@@ -13,6 +13,7 @@
               i.fa.fa-search
             span.
               Search
+
       template(v-if='categories[0]')
         table.table.is-striped.is-hoverable.is-fullwidth()
           thead
@@ -30,7 +31,7 @@
               td.
                 {{ parentCategoryName(category.parentCategory) }}
               td
-                router-link.button.is-info(:to='{ name: "CategoriesEdit", params: { categoryKey: category[".key"] }}', )
+                router-link.button.is-info(:to='{ name: "CategoriesEdit", params: { categorySlug: category.slug }}', )
                   span.icon
                     i.fa.fa-pencil
                   span.
@@ -79,7 +80,7 @@ export default {
 
     parentCategoryName (parentCategoryKey) {
       const categoryFound = this.categories.find((category) => {
-        return category['.key'] === parentCategoryKey
+        return category.slug === parentCategoryKey
       })
       return (categoryFound ? categoryFound.name : '-')
     },

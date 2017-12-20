@@ -1,40 +1,22 @@
-<template lang="pug">
-  select.SelectCategory(@input='updateValue($event.target.value)')
-    option(value='').
-      {{ placeholder }}
-    option(v-for='category in categories', :value='category[".key"]' ).
-      {{ category.name }}
-</template>
-
 <script>
+import FormField from '@/components/core/FormField'
 import db from '@/db'
 
 const categoriessRef = db.ref('categories')
 
 export default {
   name: 'SelectCategory',
-  props: {
-    value: {
-      default: '',
-      type: String,
-    },
-    placeholder: {
-      default: 'Select the category',
-      type: String,
-      required: true,
-    },
-  },
-  data () {
-    return {
-    }
-  },
+  extends: FormField,
   firebase: {
     categories: categoriessRef,
   },
-  methods: {
-    updateValue (value) {
-      this.$emit('input', value)
-    },
+  beforeMount () {
+    this.selectOptions = this.categories.map((item) => {
+      return {
+        name: item.name,
+        value: item.slug,
+      }
+    })
   },
 }
 </script>

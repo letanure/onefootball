@@ -17,6 +17,7 @@
     "eslint-plugin-vue": "next",
     "firebase": "^4.8.0",
     "pug": "^2.0.0-rc.4",
+    "slugify": "^1.2.7",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.1",
     "toastr": "^2.1.4",
