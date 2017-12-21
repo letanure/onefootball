@@ -13,19 +13,23 @@
         //- a.navbar-item
           | Home
       .navbar-end
-        a.navbar-item(@click='signOut', v-if='user', ).
-          Logout
+        .navbar-item
+          .control
+            a.button.is-danger.is-outlined(@click='signOut', v-if='user', )
+              span.
+                Logout
+              icon-ui(type='sign-out')
 
 </template>
 
 <script>
 import Firebase from 'firebase'
+import IconUi from '@/components/core/IconUi'
 
 export default {
   name: 'HeaderMain',
-  data () {
-    return {
-    }
+  components: {
+    IconUi,
   },
   computed: {
     user () {
