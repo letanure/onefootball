@@ -14,8 +14,9 @@
           | Home
       .navbar-end
         .navbar-item
+          gravatar-img(:email='user.email', v-if='user', )
           .control
-            a.button.is-danger.is-outlined(@click='signOut', v-if='user', )
+            a.button.is-danger.is-outlined.is-small(@click='signOut', v-if='user', )
               span.
                 Logout
               icon-ui(type='sign-out')
@@ -25,10 +26,12 @@
 <script>
 import Firebase from 'firebase'
 import IconUi from '@/components/core/IconUi'
+import GravatarImg from '@/components/GravatarImg'
 
 export default {
   name: 'HeaderMain',
   components: {
+    GravatarImg,
     IconUi,
   },
   computed: {
@@ -67,4 +70,7 @@ export default {
       position absolute
       top 0
       left 0px
+
+  .GravatarImg
+    margin-right 10px
 </style>
