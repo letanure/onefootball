@@ -1,23 +1,20 @@
 <template lang="pug">
-  nav.HeaderMain
-    .hero.is-light
-      .hero-head
-        .navbar.is-fixed-top.has-shadow(role='navigation', aria-label='main navigation', )
-          .navbar-brand
-            a.navbar-item(href='/', )
-              .logo
-                | Instagram Influencers
-            button.button.navbar-burger
-              span
-              span
-              span
-          .navbar-menu
-            .navbar-start
-              a.navbar-item
-                | Home
-            .navbar-end
-              a.navbar-item(@click='signOut', v-if='user', ).
-                Logout
+  nav.HeaderMain.navbar.is-fixed-top.has-shadow(role='navigation', aria-label='main navigation', )
+    .navbar-brand
+      a.navbar-item(href='/', )
+        .logo
+          | Instagram Influencers
+      button.button.navbar-burger
+        span
+        span
+        span
+    .navbar-menu
+      .navbar-start
+        //- a.navbar-item
+          | Home
+      .navbar-end
+        a.navbar-item(@click='signOut', v-if='user', ).
+          Logout
 
 </template>
 
