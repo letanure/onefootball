@@ -12,10 +12,10 @@
             Country
           th.
             Categories
-          th
+          //- th
             abbr(title='Average engagement rate of all media. Engagement rate is based on the likes and comments received divided by the number of followers at the time of the post.').
               ER
-          th.
+          //- th.
             Media posted
           th.
             Actions
@@ -27,14 +27,16 @@
             {{ influencer.country }}
           td
             .tag.
-              {{ influencer.category1 }} a
-            .tag.
-              {{ influencer.category2 }} b
-          td.
+              {{ influencer.category1 }}
+          //- td.
             0
-          td.
+          //- td.
             0
           td
+            router-link.button.is-info.is-small.is-outlined(:to='{ name: "InfluencersEdit", params: { influencerSlug: influencer.instagram }}', )
+              icon-ui(type='pencil')
+              span.
+                Edit
             .button.is-danger.is-small.is-outlined(v-on:click='removeInfluencer(influencer)',)
               icon-ui(type='trash')
               span.
@@ -70,5 +72,10 @@ export default {
 </script>
 
 <style lang="stylus">
-// .InfluencersList
+.InfluencersList
+  .button
+    margin-right 5px
+
+    &:last-children
+      margin-right 0
 </style>
