@@ -1,18 +1,16 @@
 <template lang="pug">
   .CategoriesList
+
+    .columns
+      .column
+        router-link.button.is-info.is-outlined(:to='{ name: "CategoriesAdd"}', )
+          icon-ui(type='plus')
+          span.
+            Add Category
+
     router-view
 
     .box
-
-      //- .field.has-addons
-        .control
-          input.input(type="text",  placeholder="Search", )
-        .control
-          a.button.is-info
-            span.icon
-              i.fa.fa-search
-            span.
-              Search
 
       template(v-if='categories[0]')
         table.table.is-striped.is-hoverable.is-fullwidth()
