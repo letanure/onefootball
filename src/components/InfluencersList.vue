@@ -48,7 +48,7 @@
                   icon-ui(type='pencil')
                   span.
                     Edit
-                .button.is-danger.is-small.is-outlined(v-on:click='removeInfluencer(influencer)',)
+                .button.is-danger.is-small.is-outlined(v-on:click='remove(influencer)',)
                   icon-ui(type='trash')
                   span.
                     Remove
@@ -64,6 +64,8 @@
 </template>
 
 <script>
+import toastr from 'toastr'
+import CountriesList from '@/resources/countries'
 import IconUi from '@/components/core/IconUi'
 import db from '@/db'
 
@@ -83,11 +85,13 @@ export default {
   },
   methods: {
     countryName (countryCode) {
-      return countryCode === '' ? '-' : countryCode
+      const country = CountriesList.find(country => country.code === countryCode)
+
+      return countryCode === '' ? '-' : country.name
     },
-    removeInfluencer: function (influencer) {
+    remove: function (influencer) {
       influencersRef.child(influencer['.key']).remove()
-      // toastr.success('Book removed successfully')
+      toastr.success(`Influencer ${influencer.instagram} removed successfully`)
     },
   },
 }
