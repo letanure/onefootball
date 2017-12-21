@@ -31,11 +31,11 @@
               td.
                 {{ parentCategoryName(category.parentCategory) }}
               td
-                router-link.button.is-info(:to='{ name: "CategoriesEdit", params: { categorySlug: category.slug }}', )
+                router-link.button.is-info.is-small.is-outlined(:to='{ name: "CategoriesEdit", params: { categorySlug: category.slug }}', )
                   icon-ui(type='pencil')
                   span.
                     Edit
-                button.button.is-danger(v-on:click='remove(category)',)
+                button.button.is-danger.is-small.is-outlined(v-on:click='remove(category)',)
                   icon-ui(type='trash')
                   span.
                     Delete

@@ -35,7 +35,7 @@
           td.
             0
           td
-            .button.is-danger(v-on:click='removeInfluencer(influencer)',)
+            .button.is-danger.is-small.is-outlined(v-on:click='removeInfluencer(influencer)',)
               icon-ui(type='trash')
               span.
                 Remove
