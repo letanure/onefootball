@@ -34,7 +34,7 @@
                   icon-ui(type='pencil')
                   span.
                     Edit
-                button.button.is-danger.is-small.is-outlined(v-on:click='remove(category)',)
+                button.button.is-danger.is-small.is-outlined(v-on:click='confirmRemove(category)',)
                   icon-ui(type='trash')
                   span.
                     Delete
@@ -46,11 +46,20 @@
             No Categories yet.
         router-link.button.is-info(:to='{ name: "CategoriesAdd" }', ).
           Add your first Category
+
+    confirm-modal(@close='checkAnswer($event)',
+      :active='activeModal',
+      answer-no='No, keep the category',
+      answer-yes='Yes, delete category',
+      message='Deleting a category will remove it from your list.',
+      title='Delete Category?',
+    )
 </template>
 
 <script>
 import toastr from 'toastr'
 import IconUi from '@/components/core/IconUi'
+import ConfirmModal from '@/components/core/ConfirmModal'
 import db from '@/db'
 
 const categoriessRef = db.ref('categories')
@@ -58,11 +67,13 @@ const categoriessRef = db.ref('categories')
 export default {
   name: 'CategoriesList',
   components: {
+    ConfirmModal,
     IconUi,
   },
   data () {
     return {
-      searchTerm: null,
+      activeModal: false,
+      deletingCategory: null,
     }
   },
 
@@ -74,6 +85,17 @@ export default {
   },
 
   methods: {
+    checkAnswer (answer) {
+      this.activeModal = false
+      if (answer === 'yes') {
+        this.remove(this.deletingCategory)
+      }
+    },
+
+    confirmRemove (category) {
+      this.deletingCategory = category
+      this.activeModal = true
+    },
 
     hasChildren (categorySlug) {
       return this.categories.filter((category) => {
