@@ -9,8 +9,8 @@
 
     .control
       template(v-if='type === "select"')
-        .select
-          select(v-bind:value='value', @input='updateValue($event.target.value); validations.$touch()')
+        .select(:class='statusValidationClass',)
+          select(v-bind:value='value', @input='updateValue($event.target.value);')
             option(value='').
               {{ placeholder }}
             option(v-for='option in selectOptions', :value='option.value' ).
@@ -22,14 +22,14 @@
           :type='type',
           v-bind:value='value',
           :placeholder='placeholder',
-          :class='{ "is-danger": (validations.$dirty && validations.$invalid), "is-success": (validations.$dirty &&!validations.$invalid) }',
-          @input='updateValue($event.target.value); validations.$touch()',
+          :class='statusValidationClass',
+          @input='updateValue($event.target.value);',
           )
 
       template(v-if='validations.$dirty')
-        template(v-for='param in validations.$params')
-          p.help.is-danger(v-if="!validations[param.type]").
-            {{ setErrorMessage(validations, param.type) }}
+        template(v-for='(param, paramType) in validations.$params')
+          p.help.is-danger(v-if="!validations[paramType]").
+            {{ setErrorMessage(validations, paramType) }}
       slot
 </template>
 
@@ -121,6 +121,16 @@ export default {
       selectOptions: [],
     }
   },
+  computed: {
+    statusValidationClass () {
+      const isDirty = this.validations.$dirty
+      const isInvalid = this.validations.$invalid
+      return {
+        'is-danger': (isDirty && isInvalid),
+        'is-success': (isDirty && !isInvalid),
+      }
+    },
+  },
   methods: {
     setErrorMessage (validations, paramType) {
       let errorMessage = this.errorMessages[paramType]
@@ -132,6 +142,7 @@ export default {
       return errorMessage
     },
     updateValue (value) {
+      this.validations.$touch()
       this.$emit('input', value)
     },
   },
