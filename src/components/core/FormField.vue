@@ -1,8 +1,11 @@
 <template lang="pug">
   .FormField.field
 
-    label.label.
-      {{ label }}
+    label.label
+      | {{ label }}
+      template(v-if='!validations.$params.required')
+        span.is-size-7.has-text-grey-light
+          |  (optional)
 
     .control
       template(v-if='type === "select"')
