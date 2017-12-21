@@ -13,6 +13,7 @@
     .box
 
       template(v-if='categories[0]')
+
         table.table.is-striped.is-hoverable.is-fullwidth()
           thead
             tr
@@ -37,13 +38,15 @@
                   icon-ui(type='trash')
                   span.
                     Delete
+
       template(v-else)
+
         h5.title.is-4
           span.
             No Categories yet.
         router-link.button.is-info(:to='{ name: "CategoriesAdd" }', ).
-          Add your first category
-    </template>
+          Add your first Category
+</template>
 
 <script>
 import toastr from 'toastr'
