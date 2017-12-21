@@ -82,8 +82,8 @@ const influencersRef = db.ref('influencers')
 export default {
   name: 'InfluencersList',
   components: {
-    IconUi,
     ConfirmModal,
+    IconUi,
   },
   data () {
     return {
@@ -101,15 +101,18 @@ export default {
         this.remove(this.deletingInfluencer)
       }
     },
+
     confirmRemove (influencer) {
       this.deletingInfluencer = influencer
       this.activeModal = true
     },
+
     countryName (countryCode) {
       const country = CountriesList.find(country => country.code === countryCode)
 
       return countryCode === '' ? '-' : country.name
     },
+
     remove: function (influencer) {
       influencersRef.child(influencer['.key']).remove()
       toastr.success(`Influencer ${influencer.instagram} removed successfully`)
