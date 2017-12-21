@@ -28,7 +28,7 @@
 
       template(v-if='categories[0]')
         select-category(v-model='influencer.category2',
-          label='Second category (optional)',
+          label='Second category',
           placeholder='Select the second category',
           :validations='$v.influencer.category2', )
 
@@ -51,7 +51,7 @@
 </template>
 
 <script>
-import { required, minLength } from 'vuelidate/lib/validators'
+import {email, minLength, required} from 'vuelidate/lib/validators'
 import slugify from 'slugify'
 import toastr from 'toastr'
 import db from '@/db'
@@ -78,38 +78,42 @@ export default {
   data () {
     return {
       influencer: {
-        name: '',
-        instagram: '',
-        country: '',
         category1: '',
         category2: '',
+        country: '',
+        email: '',
         facebook: '',
+        instagram: '',
+        name: '',
         twitter: '',
       },
     }
   },
   validations: {
     influencer: {
-      name: {
-        required,
-        minLength: minLength(4),
-      },
-      instagram: {
-        required,
-      },
-      country: {
-        required,
-      },
       category1: {
         required,
       },
       category2: {
       },
+      country: {
+      },
+      email: {
+        email,
+      },
       facebook: {
-        minLength: minLength(4),
+        minLength: minLength(2),
+      },
+      instagram: {
+        required,
+        minLength: minLength(1),
+      },
+      name: {
+        required,
+        minLength: minLength(2),
       },
       twitter: {
-        minLength: minLength(4),
+        minLength: minLength(2),
       },
     },
   },
@@ -171,6 +175,8 @@ export default {
       const isDuplicated = this.isDuplicated()
       const isEdit = this.influencer.hasOwnProperty('.key')
       const isValid = !this.$v.$invalid
+
+      this.$v.$touch()
 
       if (isValid) {
         if (!isEdit) {
