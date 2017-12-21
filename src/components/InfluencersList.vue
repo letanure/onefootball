@@ -48,7 +48,7 @@
                   icon-ui(type='pencil')
                   span.
                     Edit
-                .button.is-danger.is-small.is-outlined(v-on:click='remove(influencer)',)
+                .button.is-danger.is-small.is-outlined(v-on:click='confirmRemove(influencer)',)
                   icon-ui(type='trash')
                   span.
                     Remove
@@ -61,12 +61,14 @@
         router-link.button.is-info(:to='{ name: "InfluencersAdd" }', ).
           Add your first Influencer
 
+    confirm-modal(:active='activeModal', @close='checkAnswer($event)')
 </template>
 
 <script>
 import toastr from 'toastr'
 import CountriesList from '@/resources/countries'
 import IconUi from '@/components/core/IconUi'
+import ConfirmModal from '@/components/core/ConfirmModal'
 import db from '@/db'
 
 const influencersRef = db.ref('influencers')
@@ -75,15 +77,28 @@ export default {
   name: 'InfluencersList',
   components: {
     IconUi,
+    ConfirmModal,
   },
   data () {
     return {
+      activeModal: false,
+      deletingInfluencer: null,
     }
   },
   firebase: {
     influencers: db.ref('influencers'),
   },
   methods: {
+    checkAnswer (answer) {
+      this.activeModal = false
+      if (answer === 'yes') {
+        this.remove(this.deletingInfluencer)
+      }
+    },
+    confirmRemove (influencer) {
+      this.deletingInfluencer = influencer
+      this.activeModal = true
+    },
     countryName (countryCode) {
       const country = CountriesList.find(country => country.code === countryCode)
 
