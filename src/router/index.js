@@ -65,6 +65,16 @@ const router = new Router({
             requiresAuth: true,
           },
         },
+        {
+          path: 'edit/:influencerSlug',
+          name: 'InfluencersEdit',
+          component: CategoriesAdd,
+          props: true,
+          meta: {
+            title: 'Influencers / Influencer User',
+            requiresAuth: true,
+          },
+        },
       ],
     },
 
@@ -99,7 +109,7 @@ const router = new Router({
       ],
     },
 
-    // Categories
+    // Users
     {
       path: '/users/',
       name: 'UsersList',
@@ -118,7 +128,7 @@ const router = new Router({
           },
         },
         {
-          path: 'edit/:categorySlug',
+          path: 'edit/:userSlug',
           name: 'UsersEdit',
           component: CategoriesAdd,
           props: true,
