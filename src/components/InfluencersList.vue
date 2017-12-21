@@ -61,7 +61,13 @@
         router-link.button.is-info(:to='{ name: "InfluencersAdd" }', ).
           Add your first Influencer
 
-    confirm-modal(:active='activeModal', @close='checkAnswer($event)')
+    confirm-modal(@close='checkAnswer($event)',
+      :active='activeModal',
+      answer-no='No, keep the influencer',
+      answer-yes='Yes, delete influencer',
+      message='Deleting a influencer will remove it from your list.',
+      title='Delete Influencer?',
+    )
 </template>
 
 <script>

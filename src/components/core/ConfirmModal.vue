@@ -3,12 +3,16 @@
     .modal-background(@click='close("close")')
     .modal-card()
       .modal-card-head()
-        .modal-card-title() Delete Influencer?
+        .modal-card-title()
+          | {{ title }}
         button.delete(aria-label="close", @click='close("close")', )
-      .modal-card-body() Deleting a influencer will remove it from your list.
+      .modal-card-body()
+         | {{ message }}
       .modal-card-foot.has-text-right()
-        button.button(@click='close("no")', ) No, keep the influencer
-        button.button.is-danger(@click='close("yes")') Yes, delete influencer
+        button.button(@click='close("no")', )
+          | {{ answerNo }}
+        button.button.is-danger(@click='close("yes")')
+          | {{ answerYes }}
 
 </template>
 
@@ -19,6 +23,22 @@ export default {
     active: {
       default: false,
       type: Boolean,
+    },
+    answerNo: {
+      default: '',
+      type: String,
+    },
+    answerYes: {
+      default: '',
+      type: String,
+    },
+    message: {
+      default: '',
+      type: String,
+    },
+    title: {
+      default: '',
+      type: String,
     },
   },
   data () {
