@@ -16,6 +16,8 @@ Vue.use(Router)
 
 const router = new Router({
   mode: 'history',
+  // linkActiveClass: 'is-active',
+  linkExactActiveClass: 'is-active',
   routes: [
     // Sign In
     {
@@ -91,6 +93,37 @@ const router = new Router({
           props: true,
           meta: {
             title: 'Categories / Edit Category',
+            requiresAuth: true,
+          },
+        },
+      ],
+    },
+
+    // Categories
+    {
+      path: '/users/',
+      name: 'UsersList',
+      component: CategoriesList,
+      meta: {
+        title: 'Users',
+      },
+      children: [
+        {
+          path: 'add',
+          name: 'UsersAdd',
+          component: CategoriesAdd,
+          meta: {
+            title: 'Users / Add User',
+            requiresAuth: true,
+          },
+        },
+        {
+          path: 'edit/:categorySlug',
+          name: 'UsersEdit',
+          component: CategoriesAdd,
+          props: true,
+          meta: {
+            title: 'Users / Edit User',
             requiresAuth: true,
           },
         },

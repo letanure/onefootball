@@ -47,13 +47,13 @@
       Users
     ul.menu-list
       li
-        router-link(:to='{ name: "CategoriesList"}', )
+        router-link(:to='{ name: "UsersList"}', )
           //- span.icon.is-small
             i.fa.fa-tachometer
           span.
             List Users
       li
-        router-link(:to='{ name: "CategoriesAdd"}', )
+        router-link(:to='{ name: "UsersAdd"}', )
           //- span.icon.is-small
             i.fa.fa-tachometer
           span.
