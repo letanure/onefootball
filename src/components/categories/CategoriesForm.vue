@@ -118,6 +118,8 @@ export default {
       const isEdit = this.category.hasOwnProperty('.key')
       const isValid = !this.$v.$invalid
 
+      this.$v.$touch()
+
       if (isValid) {
         if (!isEdit) {
           if (isDuplicated) {
