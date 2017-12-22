@@ -11,8 +11,8 @@ import InfluencersForm from '@/components/influencers/InfluencersForm'
 import InfluencersList from '@/components/influencers/InfluencersList'
 import PageTitle from '@/components/ui/PageTitle'
 import SideMenu from '@/components/SideMenu'
-import SignIn from '@/components/SignIn'
-import SignUp from '@/components/SignUp'
+import SignIn from '@/components/login/SignIn'
+import SignUp from '@/components/login/SignUp'
 import UsersList from '@/components/users/UsersList'
 
 export {
