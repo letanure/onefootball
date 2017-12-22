@@ -10,6 +10,7 @@ import {
   InfluencersList,
   SignIn,
   SignUp,
+  UsersForm,
   UsersList
 } from '@/components/'
 
@@ -122,7 +123,7 @@ const router = new Router({
         {
           path: 'add',
           name: 'UsersAdd',
-          component: CategoriesForm,
+          component: UsersForm,
           meta: {
             title: 'Users / Add User',
             requiresAuth: true,
@@ -131,7 +132,7 @@ const router = new Router({
         {
           path: 'edit/:itemSlug',
           name: 'UsersEdit',
-          component: CategoriesForm,
+          component: UsersForm,
           props: true,
           meta: {
             title: 'Users / Edit User',

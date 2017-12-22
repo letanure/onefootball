@@ -13,6 +13,7 @@ import PageTitle from '@/components/ui/PageTitle'
 import SideMenu from '@/components/ui/SideMenu'
 import SignIn from '@/components/login/SignIn'
 import SignUp from '@/components/login/SignUp'
+import UsersForm from '@/components/users/UsersForm'
 import UsersList from '@/components/users/UsersList'
 
 export {
@@ -31,5 +32,6 @@ export {
   SideMenu,
   SignIn,
   SignUp,
+  UsersForm,
   UsersList
 }

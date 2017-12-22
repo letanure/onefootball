@@ -20,8 +20,8 @@ export default {
           key: 'name',
         },
         {
-          header: 'Parent category',
-          key: 'parentCategory',
+          header: 'Email',
+          key: 'email',
         },
         {
           header: 'Actions',
