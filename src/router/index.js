@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Firebase from 'firebase'
 import {
-  CategoriesAdd,
+  CategoriesForm,
   CategoriesList,
   Error404,
   HomeDashboard,
@@ -69,7 +69,7 @@ const router = new Router({
         {
           path: 'edit/:influencerSlug',
           name: 'InfluencersEdit',
-          component: CategoriesAdd,
+          component: CategoriesForm,
           props: true,
           meta: {
             title: 'Influencers / Influencer User',
@@ -90,8 +90,8 @@ const router = new Router({
       children: [
         {
           path: 'add',
-          name: 'CategoriesAdd',
-          component: CategoriesAdd,
+          name: 'CategoriesForm',
+          component: CategoriesForm,
           meta: {
             title: 'Categories / Add Category',
             requiresAuth: true,
@@ -100,7 +100,7 @@ const router = new Router({
         {
           path: 'edit/:categorySlug',
           name: 'CategoriesEdit',
-          component: CategoriesAdd,
+          component: CategoriesForm,
           props: true,
           meta: {
             title: 'Categories / Edit Category',
@@ -122,7 +122,7 @@ const router = new Router({
         {
           path: 'add',
           name: 'UsersAdd',
-          component: CategoriesAdd,
+          component: CategoriesForm,
           meta: {
             title: 'Users / Add User',
             requiresAuth: true,
@@ -131,7 +131,7 @@ const router = new Router({
         {
           path: 'edit/:itemSlug',
           name: 'UsersEdit',
-          component: CategoriesAdd,
+          component: CategoriesForm,
           props: true,
           meta: {
             title: 'Users / Edit User',

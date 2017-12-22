@@ -37,7 +37,7 @@
           span.
             List Categories
       li
-        router-link(:to='{ name: "CategoriesAdd"}', )
+        router-link(:to='{ name: "CategoriesForm"}', )
           //- span.icon.is-small
             i.fa.fa-tachometer
           span.

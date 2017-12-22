@@ -3,7 +3,7 @@
 
     .columns
       .column
-        router-link.button.is-info.is-outlined(:to='{ name: "CategoriesAdd"}', )
+        router-link.button.is-info.is-outlined(:to='{ name: "CategoriesForm"}', )
           icon-ui(type='plus')
           span.
             Add Category
@@ -44,7 +44,7 @@
         h5.title.is-4
           span.
             No Categories yet.
-        router-link.button.is-info(:to='{ name: "CategoriesAdd" }', ).
+        router-link.button.is-info(:to='{ name: "CategoriesForm" }', ).
           Add your first Category
 
     confirm-modal(@close='checkAnswer($event)',

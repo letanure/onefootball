@@ -1,5 +1,5 @@
 <template lang="pug">
-  .CategoriesAdd.box
+  .CategoriesForm.box
     form(v-on:submit.prevent='submit',)
 
       form-field(v-model.trim='category.name',
@@ -31,7 +31,7 @@ import FormField from '@/components/core/FormField'
 const categoriessRef = db.ref('categories')
 
 export default {
-  name: 'CategoriesAdd',
+  name: 'CategoriesForm',
   components: {
     FormField,
     SelectCategory,
@@ -144,5 +144,5 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-// .CategoriesAdd
+// .CategoriesForm
 </style>

@@ -2,7 +2,7 @@ import FormField from '@/components/core/FormField'
 import IconUi from '@/components/core/IconUi'
 import SelectCategory from '@/components/core/SelectCategory'
 import SelectCountry from '@/components/core/SelectCountry'
-import CategoriesAdd from '@/components/categories/CategoriesAdd'
+import CategoriesForm from '@/components/categories/CategoriesForm'
 import CategoriesList from '@/components/categories/CategoriesList'
 import Error404 from '@/components/Error404'
 import HeaderMain from '@/components/HeaderMain'
@@ -20,7 +20,7 @@ export {
   IconUi,
   SelectCategory,
   SelectCountry,
-  CategoriesAdd,
+  CategoriesForm,
   CategoriesList,
   Error404,
   HeaderMain,
