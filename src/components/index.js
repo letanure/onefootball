@@ -13,7 +13,7 @@ import PageTitle from '@/components/PageTitle'
 import SideMenu from '@/components/SideMenu'
 import SignIn from '@/components/SignIn'
 import SignUp from '@/components/SignUp'
-import UsersList from '@/components/UsersList'
+import UsersList from '@/components/users/UsersList'
 
 export {
   FormField,
