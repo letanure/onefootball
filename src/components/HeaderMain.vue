@@ -26,7 +26,7 @@
 <script>
 import Firebase from 'firebase'
 import IconUi from '@/components/core/IconUi'
-import GravatarImg from '@/components/GravatarImg'
+import GravatarImg from '@/components/ui/GravatarImg'
 
 export default {
   name: 'HeaderMain',
