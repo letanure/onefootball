@@ -2,8 +2,8 @@ import FormField from '@/components/core/FormField'
 import IconUi from '@/components/core/IconUi'
 import SelectCategory from '@/components/core/SelectCategory'
 import SelectCountry from '@/components/core/SelectCountry'
-import CategoriesAdd from '@/components/CategoriesAdd'
-import CategoriesList from '@/components/CategoriesList'
+import CategoriesAdd from '@/components/categories/CategoriesAdd'
+import CategoriesList from '@/components/categories/CategoriesList'
 import Error404 from '@/components/Error404'
 import HeaderMain from '@/components/HeaderMain'
 import HomeDashboard from '@/components/HomeDashboard'
@@ -13,6 +13,7 @@ import PageTitle from '@/components/PageTitle'
 import SideMenu from '@/components/SideMenu'
 import SignIn from '@/components/SignIn'
 import SignUp from '@/components/SignUp'
+import UsersList from '@/components/UsersList'
 
 export {
   FormField,
@@ -29,5 +30,6 @@ export {
   PageTitle,
   SideMenu,
   SignIn,
-  SignUp
+  SignUp,
+  UsersList
 }

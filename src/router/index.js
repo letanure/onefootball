@@ -2,14 +2,15 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Firebase from 'firebase'
 import {
-  HomeDashboard,
-  Error404,
   CategoriesAdd,
   CategoriesList,
+  Error404,
+  HomeDashboard,
   InfluencersAdd,
   InfluencersList,
   SignIn,
-  SignUp
+  SignUp,
+  UsersList
 } from '@/components/'
 
 Vue.use(Router)
@@ -113,7 +114,7 @@ const router = new Router({
     {
       path: '/users/',
       name: 'UsersList',
-      component: CategoriesList,
+      component: UsersList,
       meta: {
         title: 'Users',
       },
@@ -128,7 +129,7 @@ const router = new Router({
           },
         },
         {
-          path: 'edit/:userSlug',
+          path: 'edit/:itemSlug',
           name: 'UsersEdit',
           component: CategoriesAdd,
           props: true,
