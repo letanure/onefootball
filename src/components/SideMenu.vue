@@ -21,7 +21,7 @@
           span.
             List Influencers
       li
-        router-link(:to='{ name: "InfluencersAdd"}', )
+        router-link(:to='{ name: "InfluencersForm"}', )
           //- span.icon.is-small
             i.fa.fa-tachometer
           span.

@@ -1,5 +1,5 @@
 <template lang="pug">
-  .InfluencersAdd.box
+  .InfluencersForm.box
 
     form.form-inline(v-on:submit.prevent='submit',)
 
@@ -63,7 +63,7 @@ const influencersRef = db.ref('influencers')
 const categoriessRef = db.ref('categories')
 
 export default {
-  name: 'InfluencersAdd',
+  name: 'InfluencersForm',
   components: {
     FormField,
     SelectCategory,
@@ -204,5 +204,5 @@ export default {
 </script>
 
 <style lang="stylus">
-// .InfluencersAdd
+// .InfluencersForm
 </style>

@@ -6,7 +6,7 @@ import {
   CategoriesList,
   Error404,
   HomeDashboard,
-  InfluencersAdd,
+  InfluencersForm,
   InfluencersList,
   SignIn,
   SignUp,
@@ -59,8 +59,8 @@ const router = new Router({
       children: [
         {
           path: 'add',
-          name: 'InfluencersAdd',
-          component: InfluencersAdd,
+          name: 'InfluencersForm',
+          component: InfluencersForm,
           meta: {
             title: 'Add Influencer',
             requiresAuth: true,

@@ -7,7 +7,7 @@ import CategoriesList from '@/components/categories/CategoriesList'
 import Error404 from '@/components/Error404'
 import HeaderMain from '@/components/HeaderMain'
 import HomeDashboard from '@/components/HomeDashboard'
-import InfluencersAdd from '@/components/influencers/InfluencersAdd'
+import InfluencersForm from '@/components/influencers/InfluencersForm'
 import InfluencersList from '@/components/influencers/InfluencersList'
 import PageTitle from '@/components/PageTitle'
 import SideMenu from '@/components/SideMenu'
@@ -25,7 +25,7 @@ export {
   Error404,
   HeaderMain,
   HomeDashboard,
-  InfluencersAdd,
+  InfluencersForm,
   InfluencersList,
   PageTitle,
   SideMenu,

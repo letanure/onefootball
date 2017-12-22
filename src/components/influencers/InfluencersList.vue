@@ -3,7 +3,7 @@
 
     .columns
       .column
-        router-link.button.is-info.is-outlined(:to='{ name: "InfluencersAdd"}', )
+        router-link.button.is-info.is-outlined(:to='{ name: "InfluencersForm"}', )
           icon-ui(type='plus')
           span.
             Add Influencer
@@ -58,7 +58,7 @@
         h5.title.is-4
           span.
             No Influencer yet.
-        router-link.button.is-info(:to='{ name: "InfluencersAdd" }', ).
+        router-link.button.is-info(:to='{ name: "InfluencersForm" }', ).
           Add your first Influencer
 
     confirm-modal(@close='checkAnswer($event)',
